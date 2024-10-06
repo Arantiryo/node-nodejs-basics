@@ -4,7 +4,7 @@ import { getCurrentDir } from "../utils/utils.js";
 
 const remove = async () => {
   const { __dirname } = getCurrentDir(import.meta.url);
-  const filePath = path.join(__dirname, "fileToRemove.txt");
+  const filePath = path.join(__dirname, "files", "fileToRemove.txt");
 
   try {
     await fs.unlink(filePath);

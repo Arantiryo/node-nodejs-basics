@@ -5,8 +5,8 @@ import { getCurrentDir } from "../utils/utils.js";
 const rename = async () => {
   const { __dirname } = getCurrentDir(import.meta.url);
 
-  const srcFile = path.join(__dirname, "wrongFilename.txt");
-  const newFile = path.join(__dirname, "properFilename.md");
+  const srcFile = path.join(__dirname, "files", "wrongFilename.txt");
+  const newFile = path.join(__dirname, "files", "properFilename.md");
 
   try {
     await fs.access(newFile);
