@@ -6,19 +6,13 @@ const read = async () => {
   const { __dirname } = getCurrentDir(import.meta.url);
   const filePath = path.join(__dirname, "files", "fileToRead.txt");
 
-  const fd = await open(filePath);
+  const fd = await open(filePath, "r");
   const stream = fd.createReadStream();
 
-  stream.on("data", (chunk) => {
-    process.stdout.write(chunk);
-  });
+  stream.pipe(process.stdout);
 
   stream.on("end", () => {
     console.log("");
-  });
-
-  stream.on("error", (err) => {
-    console.error(err);
   });
 };
 
