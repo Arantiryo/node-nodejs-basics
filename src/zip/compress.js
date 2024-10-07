@@ -8,7 +8,7 @@ const compress = async () => {
   const inputFilePath = path.join(__dirname, "files", "fileToCompress.txt");
   const outputFilePath = path.join(__dirname, "files", "archive.gz");
 
-  const fdRead = await open(inputFilePath, "r");
+  const fdRead = await open(inputFilePath);
   const fdWrite = await open(outputFilePath, "w");
 
   const readStream = fdRead.createReadStream();
